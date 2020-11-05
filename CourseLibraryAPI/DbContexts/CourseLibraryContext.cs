@@ -108,6 +108,7 @@ namespace CourseLibraryAPI.DbContexts
                    Description = "In this course you'll learn how to sing all-time favourite pirate songs without sounding like you actually know the words or how to hold a note."
                }
                );
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
