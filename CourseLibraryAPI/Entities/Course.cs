@@ -13,11 +13,11 @@ namespace CourseLibraryAPI.Entities
         public Guid Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
         public string Title { get; set; }
+
         public string Description { get; set; }
 
-        [ForeignKey('AuthorId')]
+        [ForeignKey("AuthorId")]
         public Author Author { get; set; }
         public Guid AuthorId { get; set; }
     }
