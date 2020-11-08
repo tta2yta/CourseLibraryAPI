@@ -30,5 +30,16 @@ namespace CourseLibraryAPI.Services
             return _context.Courses.Where(res => res.Id == AuthorId && res.Id == CourseId).FirstOrDefault();
         }
 
+        public IEnumerable<Course> GetCourses(Guid authorID)
+        {
+            if (authorID == null)
+            {
+                throw new ArgumentNullException(nameof(authorID));
+
+            }
+
+            return _context.Courses.Where(c => c.AuthorId == authorID).OrderBy(t => t.Title).ToList();
+        }
+
     }
 }
