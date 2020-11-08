@@ -84,6 +84,7 @@ namespace CourseLibraryAPI.Services
             {
                 throw new ArgumentNullException(nameof(AuthorID));
             }
+          return  _context.Authors.Any(a => a.Id == AuthorID);
           
         }
 
