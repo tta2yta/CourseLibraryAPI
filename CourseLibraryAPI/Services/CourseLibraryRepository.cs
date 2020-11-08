@@ -41,5 +41,10 @@ namespace CourseLibraryAPI.Services
             return _context.Courses.Where(c => c.AuthorId == authorID).OrderBy(t => t.Title).ToList();
         }
 
+        public void AddCourse(Guid authorID, Course course)
+        {
+
+        }
+
     }
 }
