@@ -78,5 +78,10 @@ namespace CourseLibraryAPI.Services
 
         }
 
+        public bool AuthorExist(Guid AuthorID)
+        {
+          
+        }
+
     }
 }
