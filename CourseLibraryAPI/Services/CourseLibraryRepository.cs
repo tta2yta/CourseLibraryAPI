@@ -52,6 +52,13 @@ namespace CourseLibraryAPI.Services
                 throw new ArgumentNullException(nameof(course));
             }
 
+            course.AuthorId = authorID;
+            _context.Courses.Add(course);
+
+        }
+        public void DeleteCourse(Course course)
+        {
+
         }
 
     }
