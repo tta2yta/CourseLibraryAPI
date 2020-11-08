@@ -61,6 +61,10 @@ namespace CourseLibraryAPI.Services
             _context.Courses.Remove(course);
 
         }
+        public void AddAurthur(Author author)
+        {
+
+        }
 
     }
 }
