@@ -113,5 +113,10 @@ namespace CourseLibraryAPI.Services
             return _context.Authors.ToList<Author>();
         }
 
+        public IEnumerable<Author> GetAuthors(IEnumerable<Guid> authorsID)
+        {
+
+        }
+
     }
 }
