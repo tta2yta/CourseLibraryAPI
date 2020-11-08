@@ -43,6 +43,14 @@ namespace CourseLibraryAPI.Services
 
         public void AddCourse(Guid authorID, Course course)
         {
+            if(authorID == null)
+            {
+                throw new ArgumentNullException(nameof(authorID));
+            }
+            if (course == null)
+            {
+                throw new ArgumentNullException(nameof(course));
+            }
 
         }
 
