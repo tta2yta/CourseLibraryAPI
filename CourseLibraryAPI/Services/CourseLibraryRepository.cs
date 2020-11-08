@@ -80,6 +80,10 @@ namespace CourseLibraryAPI.Services
 
         public bool AuthorExist(Guid AuthorID)
         {
+            if (AuthorID == null)
+            {
+                throw new ArgumentNullException(nameof(AuthorID));
+            }
           
         }
 
