@@ -89,6 +89,10 @@ namespace CourseLibraryAPI.Services
         }
         public void DeleteAuthor(Author author)
         {
+            if (author == null)
+            {
+                throw new ArgumentException(nameof(author));
+            }
            
         }
 
