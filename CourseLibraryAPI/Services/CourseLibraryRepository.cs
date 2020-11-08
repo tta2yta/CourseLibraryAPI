@@ -74,6 +74,8 @@ namespace CourseLibraryAPI.Services
                 course.Id = new Guid();
             }
 
+            _context.Authors.Add(author);
+
         }
 
     }
