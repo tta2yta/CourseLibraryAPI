@@ -63,6 +63,10 @@ namespace CourseLibraryAPI.Services
         }
         public void AddAurthur(Author author)
         {
+            if (author == null)
+            {
+                throw new ArgumentNullException(nameof(author));
+            }
 
         }
 
