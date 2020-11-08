@@ -98,6 +98,10 @@ namespace CourseLibraryAPI.Services
         }
         public Author GetAuthor(Guid authorID)
         {
+            if (authorID == null)
+            {
+                throw new ArgumentNullException(nameof(authorID));
+            }
 
         }
 
