@@ -68,6 +68,12 @@ namespace CourseLibraryAPI.Services
                 throw new ArgumentNullException(nameof(author));
             }
 
+            author.Id = new Guid();
+            foreach(var course in author.Courses)
+            {
+                course.Id = new Guid();
+            }
+
         }
 
     }
