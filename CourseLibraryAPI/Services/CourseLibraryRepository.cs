@@ -103,6 +103,9 @@ namespace CourseLibraryAPI.Services
                 throw new ArgumentNullException(nameof(authorID));
             }
 
+            //return _context.Authors.Where(a => a.Id == authorID).SingleOrDefault();
+            return _context.Authors.FirstOrDefault(a => a.Id == authorID);
+
         }
 
     }
