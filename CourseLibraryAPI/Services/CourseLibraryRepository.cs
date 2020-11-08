@@ -93,6 +93,7 @@ namespace CourseLibraryAPI.Services
             {
                 throw new ArgumentException(nameof(author));
             }
+            _context.Authors.Remove(author);
            
         }
 
