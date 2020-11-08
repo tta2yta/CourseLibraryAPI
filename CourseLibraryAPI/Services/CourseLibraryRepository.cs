@@ -96,6 +96,10 @@ namespace CourseLibraryAPI.Services
             _context.Authors.Remove(author);
            
         }
+        public Author GetAuthor(Guid authorID)
+        {
+
+        }
 
     }
 }
