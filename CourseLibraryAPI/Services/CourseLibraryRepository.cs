@@ -87,6 +87,36 @@ namespace CourseLibraryAPI.Services
           return  _context.Authors.Any(a => a.Id == AuthorID);
           
         }
+        public void DeleteAuthor(Author author)
+        {
+            if (author == null)
+            {
+                throw new ArgumentException(nameof(author));
+            }
+            _context.Authors.Remove(author);
+           
+        }
+        public Author GetAuthor(Guid authorID)
+        {
+            if (authorID == null)
+            {
+                throw new ArgumentNullException(nameof(authorID));
+            }
+
+            //return _context.Authors.Where(a => a.Id == authorID).SingleOrDefault();
+            return _context.Authors.FirstOrDefault(a => a.Id == authorID);
+
+        }
+
+        public IEnumerable<Author> GetAuthors()
+        {
+            return _context.Authors.ToList<Author>();
+        }
+
+        public IEnumerable<Author> GetAuthors(IEnumerable<Guid> authorsID)
+        {
+
+        }
 
     }
 }
