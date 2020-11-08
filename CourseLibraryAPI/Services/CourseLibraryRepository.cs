@@ -68,10 +68,10 @@ namespace CourseLibraryAPI.Services
                 throw new ArgumentNullException(nameof(author));
             }
 
-            author.Id = new Guid();
+            author.Id =  Guid.NewGuid();
             foreach(var course in author.Courses)
             {
-                course.Id = new Guid();
+                course.Id =  Guid.NewGuid();
             }
 
             _context.Authors.Add(author);
