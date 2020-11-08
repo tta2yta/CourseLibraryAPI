@@ -58,6 +58,7 @@ namespace CourseLibraryAPI.Services
         }
         public void DeleteCourse(Course course)
         {
+            _context.Courses.Remove(course);
 
         }
 
