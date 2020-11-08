@@ -87,6 +87,10 @@ namespace CourseLibraryAPI.Services
           return  _context.Authors.Any(a => a.Id == AuthorID);
           
         }
+        public void DeleteAuthor(Author author)
+        {
+           
+        }
 
     }
 }
