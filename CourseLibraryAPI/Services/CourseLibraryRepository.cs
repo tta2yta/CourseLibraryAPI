@@ -108,5 +108,10 @@ namespace CourseLibraryAPI.Services
 
         }
 
+        public IEnumerable<Author> GetAuthors(Guid authorID)
+        {
+
+        }
+
     }
 }
