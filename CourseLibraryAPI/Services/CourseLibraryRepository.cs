@@ -115,7 +115,10 @@ namespace CourseLibraryAPI.Services
 
         public IEnumerable<Author> GetAuthors(IEnumerable<Guid> authorsID)
         {
-
+            if (authorsID == null)
+            {
+                throw new ArgumentNullException(nameof(authorsID));
+            }
         }
 
     }
