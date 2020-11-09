@@ -119,6 +119,8 @@ namespace CourseLibraryAPI.Services
             {
                 throw new ArgumentNullException(nameof(authorsID));
             }
+
+            return _context.Authors.Where(a => authorsID.Contains(a.Id)).OrderBy(f=>f.FirstName).OrderBy(l=>l.LastName).ToList();
         }
 
     }
