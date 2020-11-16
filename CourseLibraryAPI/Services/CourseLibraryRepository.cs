@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CourseLibraryAPI.Services
 {
-    public class CourseLibraryRepository
+    public class CourseLibraryRepository: ICourseLibraryRepository
     {
         private readonly CourseLibraryContext _context;
 
@@ -61,7 +61,7 @@ namespace CourseLibraryAPI.Services
             _context.Courses.Remove(course);
 
         }
-        public void AddAurthur(Author author)
+        public void AddAurthor(Author author)
         {
             if (author == null)
             {
@@ -123,5 +123,9 @@ namespace CourseLibraryAPI.Services
             return _context.Authors.Where(a => authorsID.Contains(a.Id)).OrderBy(f=>f.FirstName).OrderBy(l=>l.LastName).ToList();
         }
 
+        public bool save()
+        {
+            return _context.SaveChanges() >= 0;
+        }
     }
 }
