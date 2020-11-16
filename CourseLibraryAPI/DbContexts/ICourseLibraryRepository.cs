@@ -15,5 +15,12 @@ namespace CourseLibraryAPI.DbContexts
         void UpdateCourse(Course course);
         void AddAuthor(Author author);
         bool AuthorExists(Guid authorId);
+        void DeleteAuthor(Author author);
+        Author GetAuthor(Guid authorId);
+        IEnumerable<Author> GetAuthors();
+        IEnumerable<Author> GetAuthors(IEnumerable<Guid> authorIds);
+        void UpdateAuthor(Author author);
+        bool Save();
+
     }
 }
