@@ -21,6 +21,8 @@ namespace CourseLibraryAPI.DbContexts
         IEnumerable<Author> GetAuthors(IEnumerable<Guid> authorIds);
         void UpdateAuthor(Author author);
         bool Save();
+        void Dispose();
+
 
     }
 }
