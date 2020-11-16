@@ -133,5 +133,12 @@ namespace CourseLibraryAPI.Services
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                // dispose resources when needed
+            }
+        }
     }
 }
