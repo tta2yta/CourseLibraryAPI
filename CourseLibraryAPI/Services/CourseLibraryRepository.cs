@@ -127,5 +127,11 @@ namespace CourseLibraryAPI.Services
         {
             return _context.SaveChanges() >= 0;
         }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
     }
 }
