@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CourseLibraryAPI.Services
 {
-    public class CourseLibraryRepository
+    public class CourseLibraryRepository: ICourseLibraryRepository
     {
         private readonly CourseLibraryContext _context;
 
@@ -61,7 +61,7 @@ namespace CourseLibraryAPI.Services
             _context.Courses.Remove(course);
 
         }
-        public void AddAurthur(Author author)
+        public void AddAuthor(Author author)
         {
             if (author == null)
             {
@@ -78,7 +78,7 @@ namespace CourseLibraryAPI.Services
 
         }
 
-        public bool AuthorExist(Guid AuthorID)
+        public bool AuthorExists(Guid AuthorID)
         {
             if (AuthorID == null)
             {
@@ -115,8 +115,40 @@ namespace CourseLibraryAPI.Services
 
         public IEnumerable<Author> GetAuthors(IEnumerable<Guid> authorsID)
         {
+            if (authorsID == null)
+            {
+                throw new ArgumentNullException(nameof(authorsID));
+            }
 
+            return _context.Authors.Where(a => authorsID.Contains(a.Id)).OrderBy(f=>f.FirstName).OrderBy(l=>l.LastName).ToList();
         }
 
+        public bool Save()
+        {
+            return _context.SaveChanges() >= 0;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                // dispose resources when needed
+            }
+        }
+
+        public void UpdateCourse(Course course)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateAuthor(Author author)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
