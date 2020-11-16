@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CourseLibraryAPI.DbContexts;
+using CourseLibraryAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +35,7 @@ namespace CourseLibraryAPI
                  options.UseSqlServer(
                      @"Server=(localdb)\mssqllocaldb;Database=CourseLibraryDB;Trusted_Connection=True;");
              });*/
+            services.AddScoped<ICourseLibraryRepository, CourseLibraryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

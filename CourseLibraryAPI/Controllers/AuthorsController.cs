@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CourseLibraryAPI.DbContexts;
+using CourseLibraryAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseLibraryAPI.Controllers
@@ -19,10 +19,13 @@ namespace CourseLibraryAPI.Controllers
                 nameof(courseLibraryRepository));
                 
         }
+
+        [HttpGet("api/authors")]
         public IActionResult GetAurthors()
         {
             var authors = _courseLibraryRepository.GetAuthors();
             return new JsonResult(authors);
         }
+
     }
 }
