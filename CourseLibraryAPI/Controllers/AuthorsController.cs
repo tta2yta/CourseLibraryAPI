@@ -9,6 +9,8 @@ namespace CourseLibraryAPI.Controllers
 {
 
     [ApiController]
+    [Route("api/authors")]
+    //[Route("api/[Controller]")]
     public class AuthorsController : ControllerBase
     {
         public readonly ICourseLibraryRepository _courseLibraryRepository;
@@ -20,7 +22,8 @@ namespace CourseLibraryAPI.Controllers
                 
         }
 
-        [HttpGet("api/authors")]
+        //[HttpGet("api/authors")]
+        [HttpGet()]
         public IActionResult GetAurthors()
         {
             var authors = _courseLibraryRepository.GetAuthors();
