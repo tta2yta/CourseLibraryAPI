@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseLibraryAPI.DbContexts
 {
-    interface ICourseLibraryRepository
+   public interface ICourseLibraryRepository
     {
         void AddCourse(Guid authorId, Course course);
         void DeleteCourse(Course course);
