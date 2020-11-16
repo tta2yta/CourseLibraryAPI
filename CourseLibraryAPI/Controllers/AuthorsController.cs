@@ -6,8 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CourseLibraryAPI.Controllers
 {
-    public class AuthorsController : Controller
+
+    [ApiController]
+    public class AuthorsController : ControllerBase
     {
+        
         public IActionResult Index()
         {
             return View();
