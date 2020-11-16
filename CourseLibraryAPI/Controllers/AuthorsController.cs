@@ -19,9 +19,10 @@ namespace CourseLibraryAPI.Controllers
                 nameof(courseLibraryRepository));
                 
         }
-        public IActionResult Index()
+        public IActionResult GetAurthors()
         {
-            return View();
+            var authors = _courseLibraryRepository.GetAuthors();
+            return new JsonResult(authors);
         }
     }
 }
