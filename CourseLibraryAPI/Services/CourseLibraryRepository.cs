@@ -61,7 +61,7 @@ namespace CourseLibraryAPI.Services
             _context.Courses.Remove(course);
 
         }
-        public void AddAurthor(Author author)
+        public void AddAuthor(Author author)
         {
             if (author == null)
             {
@@ -78,7 +78,7 @@ namespace CourseLibraryAPI.Services
 
         }
 
-        public bool AuthorExist(Guid AuthorID)
+        public bool AuthorExists(Guid AuthorID)
         {
             if (AuthorID == null)
             {
@@ -123,7 +123,7 @@ namespace CourseLibraryAPI.Services
             return _context.Authors.Where(a => authorsID.Contains(a.Id)).OrderBy(f=>f.FirstName).OrderBy(l=>l.LastName).ToList();
         }
 
-        public bool save()
+        public bool Save()
         {
             return _context.SaveChanges() >= 0;
         }
@@ -139,6 +139,16 @@ namespace CourseLibraryAPI.Services
             {
                 // dispose resources when needed
             }
+        }
+
+        public void UpdateCourse(Course course)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateAuthor(Author author)
+        {
+            throw new NotImplementedException();
         }
     }
 }
