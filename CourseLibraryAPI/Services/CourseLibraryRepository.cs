@@ -98,10 +98,11 @@ namespace CourseLibraryAPI.Services
         }
         public Author GetAuthor(Guid authorID)
         {
-            if (authorID == null)
+           /* if (authorID == null)
             {
                 throw new ArgumentNullException(nameof(authorID));
-            }
+            }*/
+            handdleNullException<Guid>(authorID);
 
             //return _context.Authors.Where(a => a.Id == authorID).SingleOrDefault();
             return _context.Authors.FirstOrDefault(a => a.Id == authorID);
@@ -149,6 +150,14 @@ namespace CourseLibraryAPI.Services
         public void UpdateAuthor(Author author)
         {
             throw new NotImplementedException();
+        }
+        public void handdleNullException<T>(T obj1)
+        {
+            Console.WriteLine(obj1.GetType());
+            if (obj1 == null)
+            {
+                throw new ArgumentNullException(nameof(obj1));
+            }
         }
     }
 }
