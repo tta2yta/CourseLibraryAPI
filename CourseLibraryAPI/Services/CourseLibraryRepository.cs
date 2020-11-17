@@ -26,6 +26,7 @@ namespace CourseLibraryAPI.Services
             {
                 throw new ArgumentNullException(nameof(AuthorId));
             }
+            handdleNullExceptionTwoPar<Guid, Guid>(CourseId, AuthorId);
 
             return _context.Courses.Where(res => res.Id == AuthorId && res.Id == CourseId).FirstOrDefault();
         }
@@ -145,7 +146,8 @@ namespace CourseLibraryAPI.Services
         public void UpdateCourse(Course course)
         {
             throw new NotImplementedException();
-        }
+           
+;        }
 
         public void UpdateAuthor(Author author)
         {
