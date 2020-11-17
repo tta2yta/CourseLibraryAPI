@@ -27,7 +27,15 @@ namespace CourseLibraryAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            /*services.AddControllers(setUpAction =>
+            {
+                setUpAction.ReturnHttpNotAcceptable = true;
+
+            }).AddXmlDataContractSerializerFormatters();*/
+            
+            services.AddControllers(options => options.RespectBrowserAcceptHeader = true)
+                .AddXmlSerializerFormatters()
+                .AddXmlDataContractSerializerFormatters();
             services.AddDbContext<CourseLibraryContext>(o =>
             o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             /* services.AddDbContext<CourseLibraryContext>(options =>

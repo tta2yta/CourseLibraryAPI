@@ -41,6 +41,7 @@ namespace CourseLibraryAPI.Controllers
                 return NotFound();
             }
             return new JsonResult(author);
+            
         }
 
      
