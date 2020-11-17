@@ -23,7 +23,7 @@ namespace CourseLibraryAPI.Controllers
         }
 
         //[HttpGet("api/authors")]
-       // [HttpGet()]
+       [HttpGet()]
         public IActionResult GetAurthors()
         {
             var authors = _courseLibraryRepository.GetAuthors();
@@ -31,6 +31,12 @@ namespace CourseLibraryAPI.Controllers
         }
 
 
+        [HttpGet("{authorId}")]
+        public IActionResult GetAuthor(Guid authorid)
+        {
+            var author = _courseLibraryRepository.GetAuthor(authorid);
+            return new JsonResult(author);
+        }
 
      
     }
