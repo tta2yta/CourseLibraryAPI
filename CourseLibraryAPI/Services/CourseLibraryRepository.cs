@@ -159,5 +159,17 @@ namespace CourseLibraryAPI.Services
                 throw new ArgumentNullException(nameof(obj1));
             }
         }
+        public void handdleNullExceptionTwoPar<T1, T2>(T1 obj1, T2 obj2)
+        {
+            Console.WriteLine(obj1.GetType());
+            if (obj1 == null)
+            {
+                throw new ArgumentNullException(nameof(obj1));
+            }
+            if (obj2 == null)
+            {
+                throw new ArgumentNullException(nameof(obj2));
+            }
+        }
     }
 }
