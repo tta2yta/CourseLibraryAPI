@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CourseLibraryAPI.Helpers;
 using CourseLibraryAPI.Model;
 using CourseLibraryAPI.Services;
 using Microsoft.AspNetCore.Mvc;
