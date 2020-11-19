@@ -7,5 +7,10 @@ namespace CourseLibraryAPI.Model
 {
     public class AuthorDto
     {
+        public Guid Guid { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTimeOffset DateofBirth { get; set; }
+        public string MainCategory { get; set; }
     }
 }
