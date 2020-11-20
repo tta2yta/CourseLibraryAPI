@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace CourseLibraryAPI.Controllers
 {
+    [ApiController]
+    [Route("api/authors/{authorId}/courses/")]
     public class CoursesController:ControllerBase
     {
         private readonly ICourseLibraryRepository _courseLibraryRepository;
