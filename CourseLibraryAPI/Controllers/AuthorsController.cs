@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CourseLibraryAPI.Controllers
 {
-
     [ApiController]
     [Route("api/authors")]
     //[Route("api/[Controller]")]
@@ -26,7 +25,7 @@ namespace CourseLibraryAPI.Controllers
 
         //[HttpGet("api/authors")]
        [HttpGet()]
-        public IActionResult GetAurthors()
+        public ActionResult<IEnumerable<AuthorDto>> GetAurthors()
         {
             var authorsFromRepo = _courseLibraryRepository.GetAuthors();
             var authors = new List<AuthorDto>();
@@ -40,7 +39,9 @@ namespace CourseLibraryAPI.Controllers
                     MainCategory = author.MainCategory,
                     Age = author.DateOfBirth.GetCurrentAge()
                 });
+                 
             }
+         
 
           //  return new JsonResult(authors);
             return Ok(authors);
