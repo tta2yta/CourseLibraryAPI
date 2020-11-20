@@ -7,5 +7,9 @@ namespace CourseLibraryAPI.Profiles
 {
     public class AuthorProfile
     {
+        public AuthorProfile()
+        {
+
+        }
     }
 }
