@@ -33,23 +33,25 @@ namespace CourseLibraryAPI.Controllers
         public ActionResult<IEnumerable<AuthorDto>> GetAurthors()
         {
             var authorsFromRepo = _courseLibraryRepository.GetAuthors();
-            var authors = new List<AuthorDto>();
+            /* var authors = new List<AuthorDto>();
 
-            foreach(var author in authorsFromRepo)
-            {
-                authors.Add(new AuthorDto()
-                {
-                    Guid = author.Id,
-                    Name = $"{author.FirstName} {author.LastName}",
-                    MainCategory = author.MainCategory,
-                    Age = author.DateOfBirth.GetCurrentAge()
-                });
-                 
-            }
-         
+             foreach(var author in authorsFromRepo)
+             {
+                 authors.Add(new AuthorDto()
+                 {
+                     Guid = author.Id,
+                     Name = $"{author.FirstName} {author.LastName}",
+                     MainCategory = author.MainCategory,
+                     Age = author.DateOfBirth.GetCurrentAge()
+                 });
+
+             }*/
+            //Using Mapper
+
+            return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
 
           //  return new JsonResult(authors);
-            return Ok(authors);
+           // return Ok(authors);
             
         }
 
@@ -62,9 +64,10 @@ namespace CourseLibraryAPI.Controllers
             {
                 return NotFound();
             }
-            return new JsonResult(author);
+            // return new JsonResult(author);
             //return Ok(author);
-           
+
+            return Ok(_mapper.Map<AuthorDto>(author));
         }
     }
 }

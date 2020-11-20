@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CourseLibraryAPI.DbContexts;
 using CourseLibraryAPI.Services;
 using Microsoft.AspNetCore.Builder;
@@ -44,6 +45,7 @@ namespace CourseLibraryAPI
                      @"Server=(localdb)\mssqllocaldb;Database=CourseLibraryDB;Trusted_Connection=True;");
              });*/
             services.AddScoped<ICourseLibraryRepository, CourseLibraryRepository>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
