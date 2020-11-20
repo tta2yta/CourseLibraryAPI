@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CourseLibraryAPI.Helpers;
 using CourseLibraryAPI.Model;
 using CourseLibraryAPI.Services;
@@ -14,12 +15,16 @@ namespace CourseLibraryAPI.Controllers
     //[Route("api/[Controller]")]
     public class AuthorsController : ControllerBase
     {
-        public readonly ICourseLibraryRepository _courseLibraryRepository;
+        private readonly ICourseLibraryRepository _courseLibraryRepository;
+        private readonly IMapper _mapper;
 
-        public AuthorsController(ICourseLibraryRepository courseLibraryRepository)
+
+        public AuthorsController(ICourseLibraryRepository courseLibraryRepository,
+           IMapper mapper )
         {
             _courseLibraryRepository = courseLibraryRepository ?? throw new ArgumentNullException(
                 nameof(courseLibraryRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
                 
         }
 
