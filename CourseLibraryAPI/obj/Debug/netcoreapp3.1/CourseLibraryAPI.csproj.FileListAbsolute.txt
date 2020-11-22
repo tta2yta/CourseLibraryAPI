@@ -1,8 +1,6 @@
 C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp3.1\CourseLibraryAPI.csprojAssemblyReference.cache
 C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp3.1\CourseLibraryAPI.AssemblyInfoInputs.cache
 C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp3.1\CourseLibraryAPI.AssemblyInfo.cs
-C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp3.1\CourseLibraryAPI.csproj.CoreCompileInputs.cache
-C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp3.1\CourseLibraryAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -59,3 +57,7 @@ C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp
 C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp3.1\CourseLibraryAPI.dll
 C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp3.1\CourseLibraryAPI.pdb
 C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp3.1\CourseLibraryAPI.genruntimeconfig.cache
+C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp3.1\CourseLibraryAPI.csproj.CoreCompileInputs.cache
+C:\Users\TED\source\repos\CourseLibraryAPI\CourseLibraryAPI\obj\Debug\netcoreapp3.1\CourseLibraryAPI.MvcApplicationPartsAssemblyInfo.cache

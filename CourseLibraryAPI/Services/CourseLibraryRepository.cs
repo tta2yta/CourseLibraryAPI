@@ -26,6 +26,7 @@ namespace CourseLibraryAPI.Services
             {
                 throw new ArgumentNullException(nameof(AuthorId));
             }
+            handdleNullExceptionTwoPar<Guid, Guid>(CourseId, AuthorId);
 
             return _context.Courses.Where(res => res.Id == AuthorId && res.Id == CourseId).FirstOrDefault();
         }
@@ -98,10 +99,11 @@ namespace CourseLibraryAPI.Services
         }
         public Author GetAuthor(Guid authorID)
         {
-            if (authorID == null)
+           /* if (authorID == null)
             {
                 throw new ArgumentNullException(nameof(authorID));
-            }
+            }*/
+            handdleNullException<Guid>(authorID);
 
             //return _context.Authors.Where(a => a.Id == authorID).SingleOrDefault();
             return _context.Authors.FirstOrDefault(a => a.Id == authorID);
@@ -144,11 +146,32 @@ namespace CourseLibraryAPI.Services
         public void UpdateCourse(Course course)
         {
             throw new NotImplementedException();
-        }
+           
+;        }
 
         public void UpdateAuthor(Author author)
         {
             throw new NotImplementedException();
+        }
+        public void handdleNullException<T>(T obj1)
+        {
+            Console.WriteLine(obj1.GetType());
+            if (obj1 == null)
+            {
+                throw new ArgumentNullException(nameof(obj1));
+            }
+        }
+        public void handdleNullExceptionTwoPar<T1, T2>(T1 obj1, T2 obj2)
+        {
+            Console.WriteLine(obj1.GetType());
+            if (obj1 == null)
+            {
+                throw new ArgumentNullException(nameof(obj1));
+            }
+            if (obj2 == null)
+            {
+                throw new ArgumentNullException(nameof(obj2));
+            }
         }
     }
 }

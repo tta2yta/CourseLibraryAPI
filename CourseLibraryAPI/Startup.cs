@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CourseLibraryAPI.DbContexts;
 using CourseLibraryAPI.Services;
 using Microsoft.AspNetCore.Builder;
@@ -27,7 +28,15 @@ namespace CourseLibraryAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            /*services.AddControllers(setUpAction =>
+            {
+                setUpAction.ReturnHttpNotAcceptable = true;
+
+            }).AddXmlDataContractSerializerFormatters();*/
+            
+            services.AddControllers(options => options.RespectBrowserAcceptHeader = true)
+                .AddXmlSerializerFormatters()
+                .AddXmlDataContractSerializerFormatters();
             services.AddDbContext<CourseLibraryContext>(o =>
             o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             /* services.AddDbContext<CourseLibraryContext>(options =>
@@ -36,6 +45,7 @@ namespace CourseLibraryAPI
                      @"Server=(localdb)\mssqllocaldb;Database=CourseLibraryDB;Trusted_Connection=True;");
              });*/
             services.AddScoped<ICourseLibraryRepository, CourseLibraryRepository>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
