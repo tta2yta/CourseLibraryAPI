@@ -149,6 +149,12 @@ namespace CourseLibraryAPI.Services
                 return GetAuthors();
 
             }
+            var collections = _context.Authors as IQueryable<Author>;
+            if (!string.IsNullOrWhiteSpace(authorsResourcesParameters.MainCategory))
+            {
+                var mainCategory = authorsResourcesParameters.MainCategory.Trim();
+                collections = collections.Where(cat => cat.MainCategory == mainCategory);
+            }
         }
 
         public bool Save()
