@@ -78,6 +78,16 @@ namespace CourseLibraryAPI.Services
             _context.Authors.Add(author);
 
         }
+       public IEnumerable<Author> GetAuthors(string mainCategory)
+        {
+            if (mainCategory == null)
+            {
+                throw new ArgumentException(nameof(mainCategory));
+            }
+            var authorsFromRepo = _context.Authors.Where(cat => cat.MainCategory == mainCategory);
+            return authorsFromRepo.ToList();
+
+        }
 
         public bool AuthorExists(Guid AuthorID)
         {
