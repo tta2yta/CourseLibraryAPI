@@ -155,6 +155,14 @@ namespace CourseLibraryAPI.Services
                 var mainCategory = authorsResourcesParameters.MainCategory.Trim();
                 collections = collections.Where(cat => cat.MainCategory == mainCategory);
             }
+
+            if (!string.IsNullOrWhiteSpace(authorsResourcesParameters.SearchQuery))
+            {
+                var searchQuery = authorsResourcesParameters.SearchQuery.Trim();
+                collections = collections.Where(s => s.MainCategory.Contains(searchQuery)
+                  || s.FirstName.Contains(searchQuery) || s.LastName.Contains(searchQuery));
+            }
+            return collections.ToList();
         }
 
         public bool Save()
