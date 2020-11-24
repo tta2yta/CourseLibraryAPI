@@ -1,5 +1,6 @@
 ﻿using CourseLibraryAPI.DbContexts;
 using CourseLibraryAPI.Entities;
+using CourseLibraryAPI.Resource_Parameters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -133,6 +134,12 @@ namespace CourseLibraryAPI.Services
             }
 
             return _context.Authors.Where(a => authorsID.Contains(a.Id)).OrderBy(f=>f.FirstName).OrderBy(l=>l.LastName).ToList();
+        }
+
+
+        public IEnumerable<Author> GetAuthors(AuthorsResourcesParameters authorsResourcesParameters)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Save()
