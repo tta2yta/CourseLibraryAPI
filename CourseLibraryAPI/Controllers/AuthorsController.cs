@@ -70,10 +70,11 @@ namespace CourseLibraryAPI.Controllers
             return Ok(_mapper.Map<AuthorDto>(author));
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<CourseDto>> GetAuthors([FromQuery(Name ="")] string mainCategory)
+        [HttpGet()]
+        [HttpHead]
+        public ActionResult<IEnumerable<CourseDto>> GetAuthors([FromQuery(Name = "mainCategory")] string mainCategory)
         {
-            var authorsFromRepo = _courseLibraryRepository.GetAuthors();
+            var authorsFromRepo = _courseLibraryRepository.GetAuthors(mainCategory);
 
             return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
 
