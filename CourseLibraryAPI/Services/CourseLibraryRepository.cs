@@ -139,7 +139,10 @@ namespace CourseLibraryAPI.Services
 
         public IEnumerable<Author> GetAuthors(AuthorsResourcesParameters authorsResourcesParameters)
         {
-            throw new NotImplementedException();
+            if (authorsResourcesParameters == null)
+            {
+                throw new ArgumentNullException(nameof(authorsResourcesParameters));
+            }
         }
 
         public bool Save()
