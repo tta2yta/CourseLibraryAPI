@@ -143,6 +143,12 @@ namespace CourseLibraryAPI.Services
             {
                 throw new ArgumentNullException(nameof(authorsResourcesParameters));
             }
+            if(string.IsNullOrWhiteSpace(authorsResourcesParameters.MainCategory)
+                && string.IsNullOrWhiteSpace(authorsResourcesParameters.SearchQuery))
+            {
+                return GetAuthors();
+
+            }
         }
 
         public bool Save()
