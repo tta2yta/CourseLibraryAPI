@@ -30,11 +30,11 @@ namespace CourseLibraryAPI.Controllers
         }
 
         //[HttpGet("api/authors")]
-       [HttpGet()]
+       /*[HttpGet()]
         public ActionResult<IEnumerable<AuthorDto>> GetAurthors()
         {
             var authorsFromRepo = _courseLibraryRepository.GetAuthors();
-            /* var authors = new List<AuthorDto>();
+            *//* var authors = new List<AuthorDto>();
 
              foreach(var author in authorsFromRepo)
              {
@@ -46,7 +46,7 @@ namespace CourseLibraryAPI.Controllers
                      Age = author.DateOfBirth.GetCurrentAge()
                  });
 
-             }*/
+             }*//*
             //Using Mapper
 
             return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
@@ -54,7 +54,7 @@ namespace CourseLibraryAPI.Controllers
           //  return new JsonResult(authors);
            // return Ok(authors);
             
-        }
+        }*/
 
             
         [HttpGet("{authorId}")]
@@ -71,7 +71,7 @@ namespace CourseLibraryAPI.Controllers
             return Ok(_mapper.Map<AuthorDto>(author));
         }
 
-        [HttpGet()]
+        /*[HttpGet()]
         [HttpHead]
         public ActionResult<IEnumerable<CourseDto>> GetAuthors([FromQuery(Name = "mainCategory")] string mainCategory)
         {
@@ -79,8 +79,10 @@ namespace CourseLibraryAPI.Controllers
 
             return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
 
-        }
+        }*/
 
+        [HttpGet()]
+        [HttpHead]
         public ActionResult<IEnumerable<CourseDto>> GetAuthors([FromQuery] AuthorsResourcesParameters authorsResourcesParameters)
         {
             var authorsFromRepo = _courseLibraryRepository.GetAuthors(authorsResourcesParameters);
