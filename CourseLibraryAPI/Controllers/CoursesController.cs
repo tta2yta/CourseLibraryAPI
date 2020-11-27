@@ -41,7 +41,7 @@ namespace CourseLibraryAPI.Controllers
 
        
 
-        [HttpGet("{courseId}")]
+        [HttpGet("{courseId}", Name ="GetCourseForAuthor")]
         public ActionResult<CourseDto> GetCourseForAuthor(Guid authorId, Guid courseId)
         {
             if (!_courseLibraryRepository.AuthorExists(authorId))
@@ -69,6 +69,10 @@ namespace CourseLibraryAPI.Controllers
             var courseEntity = _mapper.Map<Entities.Course>(course);
             _courseLibraryRepository.AddCourse(authorId, courseEntity);
             _courseLibraryRepository.Save();
+
+            var courseToReturn = _mapper.Map<CourseDto>(courseEntity);
+            return CreatedAtRoute("GetCourseForAuthor", new { authorId = authorId, courseId = courseToReturn.Id },
+                courseToReturn);
 
         }
     }

@@ -27,7 +27,7 @@ namespace CourseLibraryAPI.Services
             {
                 throw new ArgumentNullException(nameof(AuthorId));
             }
-            handdleNullExceptionTwoPar<Guid, Guid>(CourseId, AuthorId);
+        //    handdleNullExceptionTwoPar<Guid, Guid>(CourseId, AuthorId);
 
             return _context.Courses.Where(res => res.Id == AuthorId && res.Id == CourseId).FirstOrDefault();
         }
