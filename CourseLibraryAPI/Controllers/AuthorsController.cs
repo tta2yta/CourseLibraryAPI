@@ -26,37 +26,39 @@ namespace CourseLibraryAPI.Controllers
             _courseLibraryRepository = courseLibraryRepository ?? throw new ArgumentNullException(
                 nameof(courseLibraryRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            
+            
                 
         }
 
         //[HttpGet("api/authors")]
-       /*[HttpGet()]
+        [HttpGet()]
         public ActionResult<IEnumerable<AuthorDto>> GetAurthors()
         {
             var authorsFromRepo = _courseLibraryRepository.GetAuthors();
-            *//* var authors = new List<AuthorDto>();
+            var authors = new List<AuthorDto>();
 
-             foreach(var author in authorsFromRepo)
-             {
-                 authors.Add(new AuthorDto()
-                 {
-                     Guid = author.Id,
-                     Name = $"{author.FirstName} {author.LastName}",
-                     MainCategory = author.MainCategory,
-                     Age = author.DateOfBirth.GetCurrentAge()
-                 });
+            foreach (var author in authorsFromRepo)
+            {
+                authors.Add(new AuthorDto()
+                {
+                    Guid = author.Id,
+                    Name = $"{author.FirstName} {author.LastName}",
+                    MainCategory = author.MainCategory,
+                    Age = author.DateOfBirth.GetCurrentAge()
+                });
 
-             }*//*
+            }
             //Using Mapper
 
             return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
 
-          //  return new JsonResult(authors);
-           // return Ok(authors);
-            
-        }*/
+            //  return new JsonResult(authors);
+            // return Ok(authors);
 
-            
+        }
+
+
         [HttpGet("{authorId}")]
         public IActionResult GetAuthor(Guid authorid)
         {
@@ -88,6 +90,12 @@ namespace CourseLibraryAPI.Controllers
             var authorsFromRepo = _courseLibraryRepository.GetAuthors(authorsResourcesParameters);
 
             return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
+
+        }
+
+        [HttpPost]
+        public ActionResult<AuthorDto> CreateAuthor(AuthorCreationDto author)
+        {
 
         }
     }
