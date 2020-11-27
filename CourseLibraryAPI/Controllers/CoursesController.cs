@@ -59,8 +59,13 @@ namespace CourseLibraryAPI.Controllers
 
         [HttpPost]
 
-        public ActionResult<CourseDto> CreateCourse(CourseCreationDto course)
+        public ActionResult<CourseDto> CreateCourse(Guid authorId, CourseCreationDto course)
         {
+            if (!_courseLibraryRepository.AuthorExists(authorId))
+            {
+                return NotFound();
+            }
+
 
         }
     }
