@@ -42,7 +42,7 @@ namespace CourseLibraryAPI.Controllers
             {
                 authors.Add(new AuthorDto()
                 {
-                    Guid = author.Id,
+                    Id = author.Id,
                     Name = $"{author.FirstName} {author.LastName}",
                     MainCategory = author.MainCategory,
                     Age = author.DateOfBirth.GetCurrentAge()
@@ -59,7 +59,7 @@ namespace CourseLibraryAPI.Controllers
         }
 
 
-        [HttpGet("{authorId}")]
+        [HttpGet("{authorId}", Name ="GetAuthor")]
         public IActionResult GetAuthor(Guid authorid)
         {
             var author = _courseLibraryRepository.GetAuthor(authorid);
@@ -99,6 +99,10 @@ namespace CourseLibraryAPI.Controllers
             var authorEntity = _mapper.Map<Entities.Author>(author);
             _courseLibraryRepository.AddAuthor(authorEntity);
             _courseLibraryRepository.Save();
+
+            var authorToReturn = _mapper.Map<AuthorDto>(authorEntity);
+            return CreatedAtRoute("GetAuthor", new { authorId = authorToReturn.Id },
+                authorToReturn);
 
         }
     }
