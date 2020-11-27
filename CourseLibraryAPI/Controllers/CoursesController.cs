@@ -66,6 +66,9 @@ namespace CourseLibraryAPI.Controllers
                 return NotFound();
             }
 
+            var courseEntity = _mapper.Map<Entities.Course>(course);
+            _courseLibraryRepository.AddCourse(authorId, courseEntity);
+            _courseLibraryRepository.Save();
 
         }
     }
