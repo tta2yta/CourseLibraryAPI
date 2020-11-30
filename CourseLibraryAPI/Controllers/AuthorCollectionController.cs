@@ -21,10 +21,17 @@ namespace CourseLibraryAPI.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
 
         }
-        public IActionResult<IEnumerable<AuthorDto> CreateAuthorCollection
-            (IEnumerable<AuthorCreationDto> authorcreation)
+        public ActionResult<IEnumerable<AuthorDto>> CreateAuthorCollection
+            (IEnumerable<AuthorCreationDto> authorcollection)
         {
-            return View();
+            var authorEntities = _mapper.Map<IEnumerable<Entities.Author>>(authorcollection);
+
+            foreach(var author in authorEntities)
+            {
+                _courseLibraryRepository.AddAuthor(author);
+            }
+            _courseLibraryRepository.Save();
+            return Ok();
         }
     }
 }
