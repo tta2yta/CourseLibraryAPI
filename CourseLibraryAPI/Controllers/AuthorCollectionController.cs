@@ -22,6 +22,8 @@ namespace CourseLibraryAPI.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
 
         }
+
+        [HttpPost]
         public ActionResult<IEnumerable<AuthorDto>> CreateAuthorCollection
             (IEnumerable<AuthorCreationDto> authorcollection)
         {
@@ -32,7 +34,11 @@ namespace CourseLibraryAPI.Controllers
                 _courseLibraryRepository.AddAuthor(author);
             }
             _courseLibraryRepository.Save();
-            return Ok();
+            //  return Ok();
+            var authorsCollectionToReturn = _mapper.Map<IEnumerable<AuthorDto>>(authorEntities);
+
+            var idAsString = string.Join(",", authorsCollectionToReturn.Select(a => a.Id));
+            return CreatedAtRoute("GetAuthorCollection", new { ids = idAsString }, authorsCollectionToReturn);
         }
 
         [HttpGet("({ids})")]
@@ -52,10 +58,7 @@ namespace CourseLibraryAPI.Controllers
                 return NotFound();
             }
 
-            var authorsCollectionToReturn = _mapper.Map<IEnumerable<AuthorDto>>(authorEntities);
-
-            var idAsString = string.Join(",", authorsCollectionToReturn.Select(a => a.Id));
-            return CreatedAtRoute("GetAuthorCollection", new { ids = idAsString }, authorsCollectionToReturn);
+           
            // return Ok(authorsToReturn);
         }
     }
