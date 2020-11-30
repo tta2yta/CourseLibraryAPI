@@ -40,7 +40,12 @@ namespace CourseLibraryAPI.Controllers
             [FromRoute]
             [ModelBinder(BinderType =typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
         {
-           
+            if (ids == null)
+            {
+                return BadRequest();
+            }
+
+            var authorEntities = _courseLibraryRepository.GetAuthors(ids);
 
         }
     }
