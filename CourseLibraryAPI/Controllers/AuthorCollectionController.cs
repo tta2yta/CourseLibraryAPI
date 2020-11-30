@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using CourseLibraryAPI.Model;
 using CourseLibraryAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +21,8 @@ namespace CourseLibraryAPI.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
 
         }
-        public IActionResult Index()
+        public IActionResult<IEnumerable<AuthorDto> CreateAuthorCollection
+            (IEnumerable<AuthorCreationDto> authorcreation)
         {
             return View();
         }
