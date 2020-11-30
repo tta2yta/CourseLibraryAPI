@@ -52,9 +52,11 @@ namespace CourseLibraryAPI.Controllers
                 return NotFound();
             }
 
-            var authorsToReturn = _mapper.Map<IEnumerable<AuthorDto>>(authorEntities);
+            var authorsCollectionToReturn = _mapper.Map<IEnumerable<AuthorDto>>(authorEntities);
 
-            return Ok(authorsToReturn);
+            var idAsString = string.Join(",", authorsCollectionToReturn.Select(a => a.Id));
+            return CreatedAtRoute("GetAuthorCollection", new { ids = idAsString }, authorsCollectionToReturn);
+           // return Ok(authorsToReturn);
         }
     }
 }
