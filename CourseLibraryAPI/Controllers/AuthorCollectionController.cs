@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using CourseLibraryAPI.Helpers;
 using CourseLibraryAPI.Model;
 using CourseLibraryAPI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,15 @@ namespace CourseLibraryAPI.Controllers
             }
             _courseLibraryRepository.Save();
             return Ok();
+        }
+
+        [HttpGet("({ids})")]
+        public IActionResult GetAuthorCollection(
+            [FromRoute]
+            [ModelBinder(BinderType =typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
+        {
+           
+
         }
     }
 }
