@@ -47,6 +47,14 @@ namespace CourseLibraryAPI.Controllers
 
             var authorEntities = _courseLibraryRepository.GetAuthors(ids);
 
+            if(authorEntities == null)
+            {
+                return NotFound();
+            }
+
+            var authorsToReturn = _mapper.Map<IEnumerable<AuthorDto>>(authorEntities);
+
+            return Ok(authorsToReturn);
         }
     }
 }
