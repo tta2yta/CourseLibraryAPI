@@ -41,7 +41,7 @@ namespace CourseLibraryAPI.Controllers
             return CreatedAtRoute("GetAuthorCollection", new { ids = idAsString }, authorsCollectionToReturn);
         }
 
-        [HttpGet("({ids})")]
+        [HttpGet("({ids})", Name = "GetAuthorCollection")]
         public IActionResult GetAuthorCollection(
             [FromRoute]
             [ModelBinder(BinderType =typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
@@ -53,11 +53,13 @@ namespace CourseLibraryAPI.Controllers
 
             var authorEntities = _courseLibraryRepository.GetAuthors(ids);
 
-            if(authorEntities == null)
+            if(ids.Count() != authorEntities.Count())
             {
                 return NotFound();
             }
 
+            var authorsToReturn = _mapper.Map<IEnumerable<AuthorDto>>(authorEntities);
+            return Ok(authorEntities);
            
            // return Ok(authorsToReturn);
         }
