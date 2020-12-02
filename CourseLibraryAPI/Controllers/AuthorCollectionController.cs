@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CourseLibraryAPI.Controllers
 {
+    [ApiController]
+    [Route("api/authorcollections")]
     public class AuthorCollectionController : Controller
     {
         private readonly ICourseLibraryRepository _courseLibraryRepository;
@@ -49,6 +51,7 @@ namespace CourseLibraryAPI.Controllers
             if (ids == null)
             {
                 return BadRequest();
+               
             }
 
             var authorEntities = _courseLibraryRepository.GetAuthors(ids);

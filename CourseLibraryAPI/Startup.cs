@@ -54,6 +54,7 @@ namespace CourseLibraryAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
             }
             else
                 app.UseExceptionHandler(appBuilder =>
@@ -62,8 +63,6 @@ namespace CourseLibraryAPI
                     context.Response.StatusCode = 500;
 
                     //await context.Response.WriteAsync("An unexxpected fault happened, Try again later");
-                   
-                   
                 }
                ));
 
@@ -75,6 +74,6 @@ namespace CourseLibraryAPI
             {
                 endpoints.MapControllers();
             });
-        }
+            
     }
 }
